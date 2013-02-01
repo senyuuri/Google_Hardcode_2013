@@ -1,0 +1,326 @@
+@charset "utf-8";
+/* 简单流媒体
+   注意: 流媒体要求您删除 HTML 中媒体的高度和宽度属性
+   http://www.alistapart.com/articles/fluid-images/ 
+*/
+img, object, embed, video {
+	max-width: 100%;
+}
+/* IE 6 不支持最大宽度，因此默认为 100% 宽度 */
+.ie6 img {
+	width:100%;
+}
+
+/*
+	Dreamweaver 流体网格属性
+	----------------------------------
+	dw-num-cols-mobile:		5;
+	dw-num-cols-tablet:		8;
+	dw-num-cols-desktop:	12;
+	dw-gutter-percentage:	25;
+	
+	灵感来自于 Ethan Marcotte 的“具有响应的 Web 设计” 
+	http://www.alistapart.com/articles/responsive-web-design
+	
+	和 Joni Korpi 的“黄金网格系统”
+	http://goldengridsystem.com/
+*/
+
+/* 移动设备布局: 480px 及更低。 */
+
+.gridContainer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 87.36%;
+	padding-left: 1.82%;
+	padding-right: 1.82%;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv4 {
+	font-family: 'Segoe UI', 'Advent Pro', sans-serif;
+	
+	font-size: 3em;
+    text-align:right;
+	width: 90%;
+	z-index: 1;
+	color: #FFF;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv6 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv7 {
+	clear: none;
+	float: left;
+	margin-left: 4.1666%;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv8 {
+	clear: none;
+	float: left;
+	margin-left: 4.1666%;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv9 {
+	clear: none;
+	float: left;
+	margin-left: 4.1666%;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv10 {
+	clear: none;
+	float: left;
+	margin-left: 4.1666%;
+	width: 100%;
+	display: block;
+}
+table {
+	width: 320px;
+	border-collapse: separate;
+	margin: 0 20px;
+	height: 300
+\;
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+table.bordered {
+  border-collapse: separate !important;
+  border: 1px #ccc solid !important;
+}
+
+
+
+
+
+/* 平板电脑布局: 481px 至 768px。样式继承自: 移动设备布局。 */
+
+@media only screen and (min-width: 481px) {
+.gridContainer {
+	width: 90.675%;
+	padding-left: 1.1625%;
+	padding-right: 1.1625%;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv4 {
+	font-family: 'Segoe UI', 'Advent Pro', sans-serif;
+	
+	font-size: 3em;
+    text-align:right;
+	width: 90%;
+	z-index: 1;
+	color: #FFF;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv6 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv7 {
+	clear: none;
+	float: left;
+	margin-left: 2.5641%;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv8 {
+	clear: none;
+	float: left;
+	margin-left: 2.5641%;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv9 {
+	clear: none;
+	float: left;
+	margin-left: 2.5641%;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv10 {
+	clear: none;
+	float: left;
+	margin-left: 2.5641%;
+	width: 100%;
+	display: block;
+}
+table {
+	width: 500px;
+	border-collapse: separate;
+	margin: 0 20px 20px;
+	height: 400px;
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+table.bordered {
+  border-collapse: separate !important;
+  border: 1px #ccc solid !important;
+}
+}
+
+/* 桌面电脑布局: 769px 至最高 1232px。样式继承自: 移动设备布局和平板电脑布局。 */
+
+@media only screen and (min-width: 769px) {
+.gridContainer {
+	width: 88.5%;
+	max-width: 1232px;
+	padding-left: 0.75%;
+	padding-right: 0.75%;
+	margin: auto;
+}
+#LayoutDiv1 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv2 {
+	filter: alpha(Opacity=80);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+	background-color: #F0F0F0;
+}
+#LayoutDiv3 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv4 {
+	font-family: 'Segoe UI', 'Advent Pro', sans-serif;
+	
+	font-size: 3em;
+    text-align:right;
+	width: 90%;
+	z-index: 1;
+	color: #FFF;
+}
+#LayoutDiv5 {
+	clear: both;
+	float: right;
+	margin-left: 0;
+	width: 100%;
+	display: block;
+}
+#LayoutDiv6 {
+	clear: both;
+	float: left;
+	margin-left: 0;
+	width: 45.6779%;
+	display: block;
+}
+#LayoutDiv7 {
+	clear: none;
+	float: left;
+	margin-left: 1.6949%;
+	width: 45.6271%;
+	display: block;
+	font-family: 'Segoe UI', 'Advent Pro', sans-serif;
+	font-size: 3em;
+    text-align:LEFT;
+	color: #FFF;
+}
+#LayoutDiv8 {
+	clear: none;
+	float: left;
+	margin-left: 1.6949%;
+	width: 30%;
+	display: block;
+}
+#LayoutDiv9 {
+	clear: both;
+	float: left;
+	margin-left: 2%;
+	display: block;
+	height: 12%;
+	width: 12%;
+}
+#LayoutDiv10 {
+	clear: none;
+	float: left;
+	margin-left: 1.6949%;
+	width: 12%;
+	display: block;
+}
+
+table {
+	width: 500px;
+	border-collapse: separate;
+	margin: 0 20px 20px;
+	table-layout: fixed;
+	word-wrap: break-word;
+	height: 400px;
+}
+table.bordered {
+  border-collapse: separate !important;
+  border: 1px #ccc solid !important;
+}
+}

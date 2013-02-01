@@ -1,4 +1,8 @@
-#Payroll
+#Name:q7_generate_payroll.py
+#Author:Zhan Yuli
+#Description:Payroll
+#Created:220113
+
 name = input("Enter name: ")
 hour = int(input("Enter number of hours worked weekly: "))
 payrate = float(input("Enter hourly pay rate: "))
