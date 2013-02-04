@@ -1,4 +1,4 @@
-import urllib, urllib.request, urllib.parse, urllib.error
+import urllib, urllib2, urllib.request, urllib.parse, urllib.error
 
 import re
 
@@ -7,7 +7,7 @@ username = "guest"
 password = "hostel"
 
 #创建表单数据
-postdata=urllib.parse.urlencode({
+postdata=urllib.urlencode({
     'username': username,
     'password': password,
     'submit':'Connect >> '
@@ -15,8 +15,8 @@ postdata=urllib.parse.urlencode({
 
 address = 'http://wireless.colubris.com:8080/goform/HtmlLoginRequest'
 #生成http请求并发送
-req = urllib.request(address,postdata)
-result = urllib.urlopen(req).read()
+req = urllib2.request(address,postdata)
+result = urllib2.urlopen(req).read()
 
 #检查返回页面
 decoded_result=result.decode('utf-8')
