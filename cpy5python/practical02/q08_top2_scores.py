@@ -11,9 +11,8 @@ for i in range (0, num):
     name =  input("Enter name: ")
     score = int(input("Enter score: "))
     if score > fir:
-        if fir > sec:
-            sec = fir
-            n2 = n1
+        sec = fir
+        n2 = n1
         fir = score
         n1 = name
         

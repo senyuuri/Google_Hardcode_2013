@@ -1,31 +1,38 @@
-import urllib, urllib2, urllib.request, urllib.parse, urllib.error
+import urllib, urllib.request, urllib.parse, urllib.error
 
 import re
 
+def request(us, pw):
+    #构建POST表单数据
+    postdata=urllib.parse.urlencode({
+        'username': us,
+        'password': pw,
+        'submit':'Connect >> '
+    })
+    
+    #请求地址
+    address = 'http://wireless.colubris.com:8080/goform/HtmlLoginRequest'
+
+    #生成http请求并发送
+    req = urllib.request.Request(address,postdata.encode('utf-8'))
+    result = urllib.request.urlopen(req, timeout=10).read()
+
+    #检查返回页面
+    decoded_result=result.decode('utf-8')
+    if re.search('LOADING', decoded_result): 
+        return True
+    else:
+        return False
+
 #用户名生成
-username = "guest"
+default_username = "guest"
 password = "hostel"
-
-#创建表单数据
-postdata=urllib.urlencode({
-    'username': username,
-    'password': password,
-    'submit':'Connect >> '
-})
-
-address = 'http://wireless.colubris.com:8080/goform/HtmlLoginRequest'
-#生成http请求并发送
-req = urllib2.request(address,postdata)
-result = urllib2.urlopen(req).read()
-
-#检查返回页面
-decoded_result=result.decode('utf-8')
-
-if re.search('{} HOME'.format(USER), decoded_result): 
-    print("Log in success!" )
-else:
-    with open('result.html','w') as f:
-        f.write(result)
-    print("Log in failed...")
-
-input()
+for i in range (1,31):
+    username = default_username
+    username += str(i)
+    print(username)
+    if request(username,password):
+        print("Log in success!" )
+        break
+    else:
+        print("Log in failed...")
