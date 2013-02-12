@@ -27,12 +27,17 @@ def request(us, pw):
 #用户名生成
 default_username = "guest"
 password = "hostel"
-for i in range (1,31):
-    username = default_username
-    username += str(i)
-    print(username)
-    if request(username,password):
-        print("Log in success!" )
-        break
-    else:
-        print("Log in failed...")
+succ=False
+t = 0
+while(succ == False):
+    for i in range (1,26):
+        t+=1
+        username = default_username
+        username += str(i)
+        print(username, ", count",t,)
+        if request(username,password):
+            print("Log in success!" )
+            succ = True
+            break
+        else:
+            print("Log in failed...")
