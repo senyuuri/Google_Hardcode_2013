@@ -1,7 +1,7 @@
 #Name:q6_determine_prime.py
 #Author:Zhan Yuli
 #Description:Prime number
-#Created:150213
+#Created: 150213
 import math
 
 def is_prime(n):

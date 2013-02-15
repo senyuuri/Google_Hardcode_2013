@@ -1,7 +1,7 @@
 #Name:q3_find_gcd.py
 #Author:Zhan Yuli
 #Description:Computing GCD
-#Created:150213
+#Created: 150213
 
 def cgd(m,n):
     i = 1

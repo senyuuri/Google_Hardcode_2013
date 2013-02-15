@@ -1,7 +1,7 @@
 #Name:q5_compute_series.py
 #Author:Zhan Yuli
 #Description:Computing series
-#Created:150213
+#Created: 150213
 
 def m_series(i):
     s = 4.0

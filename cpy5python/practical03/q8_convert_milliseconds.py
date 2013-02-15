@@ -1,7 +1,7 @@
 #Name:q8_convert_milliseconds.py
 #Author:Zhan Yuli
 #Description:Converting milliseconds to hours, minutes, and seconds
-#Created:150213
+#Created:  150213
 
 def convert_ms(n):
     h = int(n/1000/60/60)

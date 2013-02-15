@@ -1,7 +1,7 @@
 #Name:q7_display_matrix.py
 #Author:Zhan Yuli
 #Description:Displaying matrix of 0s and 1s
-#Created:150213
+#Created: 150213
 
 import random
 

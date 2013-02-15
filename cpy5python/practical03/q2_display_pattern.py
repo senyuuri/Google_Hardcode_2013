@@ -1,7 +1,7 @@
 #Name:q2_display_pattern.py
 #Author:Zhan Yuli
 #Description:Displaying patterns
-#Created:150213
+#Created: 150213
 
 def display_pattern(n):
     s = []
