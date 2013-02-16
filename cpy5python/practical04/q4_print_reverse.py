@@ -4,6 +4,10 @@
 #Created: 150213
 
 def reverse_int(n):
-    l = len(str(n))
+    if n < 10:
+        print(n)
+    else:
+        print(n%10,end="")
+        return reverse_int(n//10)
 
-reverse_int(54321)
+reverse_int(12345)
