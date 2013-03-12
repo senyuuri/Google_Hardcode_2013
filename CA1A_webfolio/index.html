@@ -1,0 +1,187 @@
+<!doctype html>
+
+<html class="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if lt IE 9]>
+　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<title>Zhan Yuli 5C23, Dunman High School 2013</title>
+
+<!-- Google Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Advent+Pro' rel='stylesheet' type='text/css'>
+
+<!-- css -->
+<link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+
+<link href="css/modern.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+body {
+	background-image: url(img/bg.jpg);
+}
+
+
+
+#apDiv2 {
+	position: absolute;
+	left: 198px;
+	top: 66px;
+	width: 92px;
+	height: 81px;
+	z-index: 2;
+}
+#apDiv3 {
+	position: absolute;
+	left: 275px;
+	top: 145px;
+	width: 99px;
+	height: 74px;
+	z-index: 2;
+	background-color:#4EB4E9;
+	border:1px solid #B6B3AC;
+}
+</style>
+
+<!-- Google jQuery 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+<!-- Local jQuery -->
+<script src="js/jquery-1.8.1.min.js"></script>
+<!-- Dreamweaver Defult Library -->
+<script src="js/respond.min.js"></script>
+
+<script>
+window.onload=function(){
+	var divs=document.getElementsByTagName('div');//找到所有div元素
+	for(var i=0; i<divs.length; i++){
+		if(divs[i].className!='jsdemo') continue;//如果元素class值不是jsdemo,继续查找
+		//divs[i].style.display='none';   //如果你想默认是隐藏状态,可取消此行注释
+		var title=divs[i].previousSibling;//通过上一个元素定位到标题元素
+		if(title.nodeType!=1){  //为了确保找到的是元素节点
+			title=title.previousSibling;
+		}
+		title.next=divs[i]; //设置标题的next属性并指向div[i]
+		title.onclick=function(){//点击事件
+			var curStyle=this.next.style.display;//取div[i]的默认display值,现在知道title.next的用意了吧
+			var newStyle;//定义新的display值
+			var ico=title.getElementsByTagName('span')[0];//包含展开关闭按钮的节点
+			if(curStyle=='none'){//取反实现点击的展开关闭
+				newStyle='block';//当默认值是隐藏时,切换成可见
+				ico.innerHTML='-';//切换展开关闭按钮
+			}else{
+				newStyle='none';//当默认值是可见时,切换成隐藏
+				ico.innerHTML='+';//切换展开关闭按钮
+			};
+			title.next.style.display=newStyle;//为点击后的div[i]赋值
+		}
+	}
+}
+$(function(){
+    var $title=$('div.jqdemo');
+    $title.each(  
+        function()
+        {            
+            var $titleDiv = $(this);
+            $titleDiv.prev().toggle(function(){
+                $titleDiv.show().prev().find('span').text('-');
+            },function(){
+				$titleDiv.hide().prev().find('span').text('+');
+            });
+        }    
+    );
+    $title.hide(); 
+     
+});
+</script>
+</head>
+
+
+<body>
+
+<div class="gridContainer clearfix">
+  <div id="LayoutDiv1">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </div>
+  <div id="LayoutDiv2" style="background-color:#222;
+    filter:alpha(Opacity=80);-moz-opacity:0.5;opacity: 0.5;">
+   
+    <p>&nbsp;</p>
+    <div id="LayoutDiv4">def Yuli(webfolio)</div>
+    
+    <div id="LayoutDiv5">
+      <div id="LayoutDiv6">
+        <p>&nbsp;</p>
+        <p><img src="img/photo.png" alt="photo" width="429" height="259" style="border-left:15px;"> </p>
+        <p>&nbsp;</p>
+      </div>
+      <div id="LayoutDiv7">
+        <script>
+		  function profile(){
+			  
+		  }
+		</script>
+        <p>&nbsp;</p>
+        <p>
+        <h2><span>+</span>Profile</h2>
+        <div class="jqdemo">
+        	<p>Hi this is Yuli's webfolio:)        	</p>
+        	<p>I will regularly upload some source code of my personal projects here. Hope we can learn from each other. Pls feel free to post a  comment!</p>
+        	<p>You can also get to know me through:</p>
+       	  <p><a href="https://github.com/natsuyuu">Github:https://github.com/natsuyuu</a></p>
+        	<p><a href="https://www.facebook.com/yuli.zhan.7">Facebook:https://www.facebook.com/yuli.zhan.7</a>        </p>
+        </div>
+        <h2><span>+</span>Education</h2>
+        <div class="jqdemo">
+       	  <p>2000-2004  Xiaguan Experimental Primary School, Nanjing, China</p>
+       	  <p>2004-2007 Youfu West Street Primary School, Nanjing, China</p>
+        	<p>2007-2010  No.13 Secondary School, Nanjing, China</p>
+        	<p>2010-now Dunman High School, Singapore        </p>
+        </div>
+        <h2><span>+</span>Competencies</h2>
+        <div class="jqdemo">
+        	<p>- Fingerstyle guitar (First studio record released! <a href="mp3/record.mp3">Listen here</a>)</p>
+        	<p>- Japanese</p>
+        	<p>- Visual Basic 6.0/2003</p>
+        	<p>- C/C++        </p>
+        </div>
+        <h2><span>+</span>Achievement</h2>
+        <div class="jqdemo">
+          <p>- International Competitions &amp; Assesments for Schools - Computer Skills 2nd Placing (2011)       	  </p>
+          <p>- Singapore Amazing Flying Machine Competition(SAFMC)  C Group Silver &amp; Theory Gold(2012) </p>
+          <p>- DHS Centre Stage Group Category 2nd Placing(2012)</p>
+        	<p>- Japanese Language Proficiency Test(JLPT) N2 Distinction(2013)        </p>
+        </div>
+        <h2><span>+</span>Source Code</h2>
+        <div class="jqdemo">
+        	<p>Autologin ver1.4 (<a href="py/Autologin.py">Download</a>)        	</p>
+        	<p>A python programme which help you to login in DHS Hostel wireless using a guest account.</p>
+       	  <p>&nbsp;</p>
+        	<p>New features:        	</p>
+        	<p>10/02/2013_v1.4 Bug fixed.        	</p>
+        	<p>08/02/2013_v1.3 Optimised for responsiveness and latency.</p>
+        </div>
+        <h2><span>+</span>HTML Game</h2>
+        <div class="jqdemo">
+        <p>Coming up soon:)</p>
+        </div>
+        <!--
+        <div><a href="javascript:profile();">Profile </a></div><div><a href="javascript:profile();">Education</a></div><div><a href="javascript:profile();">Competence</a></div><div><a href="javascript:profile();">Interest</a></div><div><a href="javascript:profile();">Source Code</a></div><div><a href="javascript:profile();">Game</a></div>
+        -->
+        </p> 
+      </div>
+      <p>&nbsp;</p>
+      <div id="LayoutDiv8"></div>
+    </div>
+   
+  </div>
+  <div id="LayoutDiv3">
+    <footer style="color:#A8A8A8">
+      <p>©Zhan Yuli, Dunman High School</p>
+      <p>Email:zhan.yuli@dhs.sg </p>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
