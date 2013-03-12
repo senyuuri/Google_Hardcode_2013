@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="/static/css/metro-bootstrap.css" type="text/css" media="screen" />
+</head>
+
+
+<body>
+{% block content %}
+<!--Navibar-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+               
+                <a class="brand" href="">{{nickname}}</a>
+                <a class="brand" href="/main/add_post">Add Post</a>
+            <a class="brand" href="/main/account">Setting</a>
+        </a><a class="brand" href="{{logout}}">Sign Out</a>
+    </div>
+
+    </div>
+
+</div>
+<div class="well">
+
+<h3>{{post.title}}</h3>
+<p>{{subject}}</p>
+<p>{{post.post_time.strftime('%y-%m-%d %H:%M:%S')}} by {{post.relevant_user.nickname}}</p>
+<p>{{post.content}}</p>
+</div>
+{% if not post.answer %}
+<div class="alert alert-block">
+  <a class="close" data-dismiss="alert" href="#">×</a>
+  <p>There's no best answer yet, let's solve it!</p>
+</div>
+{% endif %}
+
+<br>
+<h4>Reply</h4>
+{% for comment in comments %}
+
+<p>{{comment.post_time.strftime('%y-%m-%d %H:%M:%S')}} by {{comment.post_user.nickname()}}</p>
+<p>{{comment.content}}</p>
+{% endfor %}
+<form method='post'>
+         <div class="control-group">
+          <hr> 
+          </div>
+
+          <div class="control-group">
+          	 <label class="control-label" for="textarea">Leave a comment</label>
+          	 <label class="control-label" for="textarea">Current account: {{nickname}}</label>
+            <div class="controls">
+              <textarea class="input-xlarge" id="textarea" rows="3" name='comment' required></textarea>
+            </div>
+            <input type='hidden' name='postid' value='{{post.pid}}'>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+
+</form>
+</div>
+
+
+     
+ <footer>
+	<p>
+
+		Copyright &copy; 2013 natsuyuu
+	</p>
+</footer>
+{% endblock %}
+</body>
+</html>

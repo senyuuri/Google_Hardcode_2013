@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="/static/css/metro-bootstrap.css" type="text/css" media="screen" />
+</head>
+
+<body>
+{% block content %}
+<!--Navibar-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+               
+                <a class="brand" href="">{{user.nickname}}</a>
+                <a class="brand" href="/main/add_post">Add Post</a>
+            	<a class="brand" href="/main/account">Setting</a>
+        		<a class="brand" href="{{logout}}">Sign Out</a>
+        	</div>
+        </div>
+    </div>
+
+<div class='well'>
+<h3>My account status</h3>
+<p>{{user.user}}</p>
+
+<p>Authentication:{{group}}</p>
+<p>Registration:{{user.reg_time.strftime('%y-%m-%d %H:%M:%S')}}</p>
+<p>Last Login:{{user.last_login.strftime('%y-%m-%d %H:%M:%S')}}</p>
+<div class="control-group">
+          
+            <div class="controls">
+              <div class="input-append">
+                <form method='post'>
+                <input class="span2" id="appendedInputButton" size="16" type="text" name="nickname" value='{{user.nickname}}'>
+                <input class="btn" type="submit" value='Change nickname'>
+              
+            </form>
+              </div>
+            </div>
+          </div>
+{% if success==0 %}
+<div class="alert alert-success">
+  <p>  {{message}}</p>
+</div>
+{% endif %}
+{% if success==1 %}
+<div class="alert alert-error">
+  <p>  {{message}}</p>
+</div>
+{% endif %}
+</div>
+
+<div class='well'>
+<h3>Subject Setting</h3>
+{% for s in subject %}
+<span class='btn'>{{s}}</span>
+{% endfor %}
+<br>
+</br>
+ <a class="btn" href='/main/subchoose'>Change subject setting</a>
+              
+</div>
+
+{% endblock %}
+<footer>
+	<p>
+		Copyright &copy; 2013 natsuyuu
+	</p>
+</footer>
+
+</body>
+</html>

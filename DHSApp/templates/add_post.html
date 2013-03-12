@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="/static/css/metro-bootstrap.css" type="text/css" media="screen" />
+</head>
+
+
+<body>
+{% block content %}
+<!--Navibar-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+               
+                <a class="brand" href="">{{nickname}}</a>
+                <a class="brand" href="/main/add_post">Add Post</a>
+            <a class="brand" href="/main/account">Setting</a>
+        <a class="brand" href="{{logout}}">Sign Out</a>
+    </div>
+
+    </div>
+
+<form class="well" method="post">
+	<span class="help-block">Say something about the lecture:)</span>
+  <label>Title</label>
+  <input type="text" class="span3" placeholder="" name="title" value="{{title}}" required>
+  
+ 
+  <div class="control-group">
+            <label class="control-label" for="select01">Subject</label>
+            <div class="controls">
+              <select id="select01" name="subject">
+
+              	<option value="0">0 -- General Paper</option>
+<option value="1">1 -- Mathematics</option>
+<option value="2">2 -- Physics</option>
+<option value="3">3 -- Chemistry</option>
+<option value="4">4 -- Economy</option>
+<option value="5">5 -- Biology</option>
+<option value="6">6 -- Geography</option>
+<option value="7">7 -- Computing</option>
+<option value="8">8 -- ELL</option>
+<option value="9">9 -- CLL</option>
+<option value="10">10 -- CSC</option>
+<option value="11">11 -- GSC</option>
+<option value="12">12 -- Art</option>
+<option value="13">13 -- Music</option>
+<option value="14">*14 -- Third Language</option>
+               
+              </select>
+            </div>
+          </div>
+
+  <label class="control-label" for="textarea">Textarea</label>
+            <div class="controls">
+              <textarea class="input-xlarge" id="textarea" rows="3" name="content" value="{{content}}" required></textarea>
+            </div>
+  <button type="submit" class="btn">Submit</button>
+</form>
+
+<footer>
+	<p>
+
+		Copyright &copy; 2013 natsuyuu
+	</p>
+</footer>
+{% endblock %}
+</body>
+</html>

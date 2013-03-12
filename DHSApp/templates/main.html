@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="static/css/metro-bootstrap.css" type="text/css" media="screen" />
+</head>
+
+<body>
+{% block content %}
+<!--Navibar-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+               
+                </a><a class="brand" href="">{{nickname}}</a>
+            </a><a class="brand" href="/main/add_post">Add Post</a>
+            </a><a class="brand" href="/main/account">Setting</a>
+        </a><a class="brand" href="{{logout}}">Sign Out</a>
+                <!--
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li>
+                        
+                        <a href="index.html">Overview</a> </li>
+                        <li class=""><a href="basecss.html">Base CSS</a> </li>
+                        <li class="active"><a href="components.html">Components</a> </li>
+                        
+                    </ul>
+                </div>
+           		-->
+            </div>
+        </div>
+    </div>
+
+
+<div class="span4">
+
+</div>
+
+<div class="span4">
+
+      <h3>Subjects</h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="/main/subject/15">View All</a></li>
+        {{temp_html|safe}}
+      </ul>
+</div>
+
+{% endblock %}
+<footer>
+	<p>
+		Copyright &copy; 2013 natsuyuu
+	</p>
+</footer>
+
+</body>
+</html>

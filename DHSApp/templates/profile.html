@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="/static/css/metro-bootstrap.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/static/js/jquery-1.8.0.js"></script>
+<script type="text/javascript" src="/static/js/tab.js"></script>
+</head>
+
+<body>
+{% block content %}
+<!--Navibar-->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+               
+               <a class="brand" href="">{{nickname}}</a>
+                <a class="brand" href="/main/add_post">Add Post
+            	</a><a class="brand" href="/main/account">Setting</a>
+        		</a><a class="brand" href="{{logout}}">Sign Out</a>
+        	</div>
+        </div>
+    </div>
+
+<div class='well'>
+<h3>{{user.nickname}}</h3>
+<p>Authentication:{{group}}</p>
+<p>Registration:{{user.reg_time.strftime('%y-%m-%d %H:%M:%S')}}</p>
+<p>Last Login:{{user.last_login.strftime('%y-%m-%d %H:%M:%S')}}</p>
+<p>Contribution: {{user.post_num}}post(s)&nbsp;&nbsp; {{user.comment_num}}comment(s)
+<br>
+<p>Subject Combination:</p>
+{% for s in subject %}
+<span class='btn'>{{s}}</span>
+{% endfor %}
+
+
+</div>
+
+<div>
+      <h4>Recent activities</h4>
+      <div class="tabbable" style="margin-bottom: 18px;">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab1" data-toggle="tab">Post</a></li>
+          <li><a href="#tab2" data-toggle="tab">Comment</a></li>
+          <li><a href="#tab3" data-toggle="tab">Coming soon:)</a></li>
+        </ul>
+        <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
+          <div class="tab-pane active" id="tab1">
+            <table class="table table-striped">
+        <tbody>
+            {% for post in posts %}
+          <tr>
+            <td><a href="/main/post/{{post.pid}}">{{post.title}}</a></td>
+            <td>{{post.comment_num}} reply</td>
+            <td>{{post.post_time.strftime('%y-%m-%d %H:%M:%S')}}</td>
+           {% endfor %}
+          </tr>
+        
+        </tbody>
+            </table>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <table class="table table-striped">
+        <tbody>
+            {% for comment in comments %}
+          <tr>
+            <td><a href="/main/post/{{comment.relevant_post.pid}}">{{comment.content}}</a></td>
+          
+            <td>{{comment.post_time.strftime('%y-%m-%d %H:%M:%S')}}</td>
+           {% endfor %}
+          </tr>
+        
+        </tbody>
+            </table>
+          </div>
+          <div class="tab-pane" id="tab3">
+            <p>You will see his/her like history here.</p>
+          </div>
+        </div>
+      </div> <!-- /tabbable -->
+</div>
+
+
+{% endblock %}
+<footer>
+	<p>
+		Copyright &copy; 2013 natsuyuu
+	</p>
+</footer>
+
+</body>
+</html>

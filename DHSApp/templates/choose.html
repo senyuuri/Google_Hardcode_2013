@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="/static/css/metro-bootstrap.css" type="text/css" media="screen" />
+</head>
+
+<body>
+{% block content %}
+
+ <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+               
+                </a><a class="brand" href="">{{nickname}}</a>
+                <a class="brand" href="/main/add_post">Add Post
+              </a>
+            </a><a class="brand" href="/main/account">Setting</a>
+        </a><a class="brand" href="{{logout}}">Sign Out</a>
+
+   </div>
+        </div>
+    </div>
+
+
+<h3>Subject Setting</h3>
+<form method='post'>
+<div class="control-group">
+			<p class="help-block"><strong>Note:</strong> Your choices will be presented in your account profile. It also decides what subjects to be shown in the main page. You can change it anytime later in the 'Setting' page.</p>
+            <label class="control-label" for="optionsCheckboxList"></label>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="0">
+                0 -- General Paper
+                 </label>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="1">
+                1 -- Mathematics
+                 </label>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="2">
+                2 -- Physics
+                 </label>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="3">
+                3 -- Chemistry
+                 </label>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="4">
+                4 -- Economy
+                 </label>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="5">
+                5 -- Biology
+                 </label>
+            </div>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="6">
+                6 -- Geography
+                 </label>
+            </div>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="7">
+                7 -- Computing
+                 </label>
+            </div>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="8">
+                8 -- ELL
+                 </label>
+            </div>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="9">
+                9 -- CLL
+                 </label>
+            </div>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="10">
+                10 -- CSC
+                 </label>
+            </div>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="11">
+                11 -- GSC
+                 </label>
+            </div>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="12">
+                12 -- Art
+                 </label>
+            </div>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="13">
+                13 -- Music
+                 </label>
+            </div>
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" name="subject" value="14">
+                *14 -- Third Language
+                 </label>
+            </div>
+    </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button class="btn">Cancel</button>
+          </div>
+
+</form>
+
+<footer>
+	<p>
+
+		Copyright &copy; 2013 natsuyuu
+	</p>
+</footer>
+{% endblock %}
+</body>
+</html>

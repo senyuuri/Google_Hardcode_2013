@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="/static/css/metro-bootstrap.css" type="text/css" media="screen" />
+</head>
+
+<body>
+{% block content %}
+
+ <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+               
+                </a><a class="brand" href="">{{nickname}}</a>
+                <a class="brand" href="/main/add_post">Add Post
+              </a>
+            </a><a class="brand" href="/main/account">Setting</a>
+        </a><a class="brand" href="{{logout}}">Sign Out</a>
+                <!--
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li>
+                        
+                        <a href="index.html">Overview</a> </li>
+                        <li class=""><a href="basecss.html">Base CSS</a> </li>
+                        <li class="active"><a href="components.html">Components</a> </li>
+                        
+                    </ul>
+                </div>
+           		-->
+            </div>
+        </div>
+    </div>
+
+
+<div class="span8">
+   <h3>{{subject}}</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title &nbsp; &nbsp; &nbsp;</th>
+            <th>Reply</th>
+            <th>User</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+          <tr>
+            <td><a href="/main/post/{{post.pid}}">{{post.title}}</a></td>
+            <td>{{post.comment_num}}</td>
+            <td><a href='/main/profile/{{post.relevant_user.nickname()}}'>{{post.relevant_user.nickname()}}</a></td>
+           {% endfor %}
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+
+
+<footer>
+	<p>
+
+		Copyright &copy; 2013 natsuyuu
+	</p>
+</footer>
+{% endblock %}
+</body>
+</html>
