@@ -34,6 +34,16 @@ def next_comment_id():
     posts = db.GqlQuery('SELECT * FROM Comment ORDER BY cid DESC')
     return 0 if posts.count() == 0 else posts[0].cid + 1
 
+def rnsublist(u):
+    sublist = ['General Paper','Mathematics','Physics','Chemistry','Economy','Biology','Geography','Computing','ELL','CLL','CSC','GSC','Art','Music','Third Language','All']
+    subnum = u.subcombi
+    subject = []
+    temp_html=''
+    for s in subnum:
+      subject.append(sublist[int(s)])
+      temp_html += ('<li><a href="/main/subject/%s">%s</a></li>'%(int(s),sublist[int(s)]))
+    return temp_html
+
 class BaseHandler(webapp2.RequestHandler):
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
@@ -74,18 +84,12 @@ class MainPage(BaseHandler):
             u.last_login = datetime.now()
             u.put()
             
-            sublist = ['General Paper','Mathematics','Physics','Chemistry','Economy','Biology','Geography','Computing','ELL','CLL','CSC','GSC','Art','Music','Third Language','All']
-            temp_html=''
-            subnum = u.subcombi
-            subject = []
-            for s in subnum:
-              subject.append(sublist[int(s)])
-              temp_html += ('<li><a href="/main/subject/%s">%s</a></li>'%(int(s),sublist[int(s)]))
-
+            
             params = {
                 'logout':users.create_logout_url("/"),
                 'nickname':u.nickname,
-                'temp_html':temp_html,
+                'temp_html':rnsublist(u),
+                #'navi_html':navi_html,
             }
             self.render('main.html',**params)
 
@@ -103,6 +107,7 @@ class Subject(BaseHandler):
                   'posts':posts,
                   'logout':users.create_logout_url("/"),
                   'nickname':u.nickname,
+                  'temp_html':rnsublist(u),
 
         }
 
@@ -117,6 +122,7 @@ class AddPost(BaseHandler):
         params = {
                   'logout':users.create_logout_url("/"),
                   'nickname':u.nickname,
+                  'temp_html':rnsublist(u),
 
         }
         self.render("add_post.html",**params)
@@ -137,6 +143,11 @@ class AddPost(BaseHandler):
         #self.response.out.write(subject)
         self.redirect('/main')
 
+class AllPost(BaseHandler):
+    def get(self):
+      pass
+
+
 class SinglePost(BaseHandler):
     def get(self,pid):
         posts=db.GqlQuery('SELECT * FROM Post WHERE pid = :1', int(pid))
@@ -151,6 +162,7 @@ class SinglePost(BaseHandler):
                   'post':p,
                   'subject':sublist[int(pid)],
                   'comments':comments,
+                  'temp_html':rnsublist(u),
         }
         if not posts:
           self.error(404)
@@ -189,6 +201,7 @@ class Profile(BaseHandler):
         for s in subnum:
           subject.append(sublist[int(s)])
           
+          
         #self.response.out.write(subject) 
         if not u:
           self.error(404)
@@ -208,6 +221,7 @@ class Profile(BaseHandler):
                   'posts':posts,
                   'comments':comments,
                   'subject':subject,
+                  'temp_html':rnsublist(u),
         }
         self.render('profile.html', **params)        
 
@@ -236,6 +250,8 @@ class Account(BaseHandler):
                   'user':current_u,
                   'group':group,
                   'subject':subject,
+                  'nickname':current_u.nickname,
+                  'temp_html':rnsublist(current_u),
       }
       self.render('account.html',**params)
 
@@ -281,8 +297,9 @@ class Admin(BaseHandler):
 
 class SubChoose(BaseHandler):
     def get(self):
-
-      self.render('choose.html')
+      user = users.get_current_user()
+      u=db.GqlQuery('SELECT * FROM User WHERE user = :1', user).get()
+      self.render('choose.html',temp_html=rnsublist(u))
 
     def post(self):
       subject = self.request.get_all('subject')
@@ -301,7 +318,8 @@ app = webapp2.WSGIApplication([('/', Login),
                                ('/main/account', Account),
                                ('/main/edit_post', EditPost),
                                ('/main/subchoose', SubChoose),
-                               ('/admin',Admin),                               
+                               ('/main/all', AllPost),
+                               ('/admin',Admin),                              
                               ],
                               debug=True)
 

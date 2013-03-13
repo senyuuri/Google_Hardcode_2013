@@ -1,57 +1,24 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-<link rel="stylesheet" href="static/css/metro-bootstrap.css" type="text/css" media="screen" />
-</head>
 
-<body>
 {% block content %}
-<!--Navibar-->
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-               
-                </a><a class="brand" href="">{{nickname}}</a>
-            </a><a class="brand" href="/main/add_post">Add Post</a>
-            </a><a class="brand" href="/main/account">Setting</a>
-        </a><a class="brand" href="{{logout}}">Sign Out</a>
-                <!--
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li>
-                        
-                        <a href="index.html">Overview</a> </li>
-                        <li class=""><a href="basecss.html">Base CSS</a> </li>
-                        <li class="active"><a href="components.html">Components</a> </li>
-                        
-                    </ul>
-                </div>
-           		-->
-            </div>
-        </div>
+
+<div class="span7">
+      {% if not temp_html %}
+      <div class="alert alert-success">
+        Welcome to DHSlecture! We notice that you have not indicated your subject combination yet. <a href='/main/subchoose'>&gt;&gt; Click here &lt;&lt; </a>to go to the setting page.
     </div>
-
-
-<div class="span4">
-
-</div>
-
-<div class="span4">
-
+      {% endif %}
       <h3>Subjects</h3>
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="/main/subject/15">View All</a></li>
+        {% if temp_html %}
+        <li class='active'><a href="#">View All</a></li>
+        {% endif %}
         {{temp_html|safe}}
       </ul>
 </div>
 
-{% endblock %}
-<footer>
-	<p>
-		Copyright &copy; 2013 natsuyuu
-	</p>
-</footer>
 
-</body>
-</html>
+{% endblock %}
+
+

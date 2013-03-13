@@ -1,26 +1,8 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-<link rel="stylesheet" href="/static/css/metro-bootstrap.css" type="text/css" media="screen" />
-<script type="text/javascript" src="/static/js/jquery-1.8.0.js"></script>
-<script type="text/javascript" src="/static/js/tab.js"></script>
-</head>
 
-<body>
 {% block content %}
-<!--Navibar-->
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-               
-               <a class="brand" href="">{{nickname}}</a>
-                <a class="brand" href="/main/add_post">Add Post
-            	</a><a class="brand" href="/main/account">Setting</a>
-        		</a><a class="brand" href="{{logout}}">Sign Out</a>
-        	</div>
-        </div>
-    </div>
+
 
 <div class='well'>
 <h3>{{user.nickname}}</h3>
@@ -49,6 +31,7 @@
           <div class="tab-pane active" id="tab1">
             <table class="table table-striped">
         <tbody>
+
             {% for post in posts %}
           <tr>
             <td><a href="/main/post/{{post.pid}}">{{post.title}}</a></td>
@@ -82,12 +65,8 @@
 </div>
 
 
-{% endblock %}
-<footer>
-	<p>
-		Copyright &copy; 2013 natsuyuu
-	</p>
-</footer>
 
-</body>
-</html>
+{% endblock %}
+
+
+

@@ -1,27 +1,7 @@
-<!doctype html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-<link rel="stylesheet" href="/static/css/metro-bootstrap.css" type="text/css" media="screen" />
-</head>
 
-<body>
 {% block content %}
-
- <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-               
-                </a><a class="brand" href="">{{nickname}}</a>
-                <a class="brand" href="/main/add_post">Add Post
-              </a>
-            </a><a class="brand" href="/main/account">Setting</a>
-        </a><a class="brand" href="{{logout}}">Sign Out</a>
-
-   </div>
-        </div>
-    </div>
-
 
 <h3>Subject Setting</h3>
 <form method='post'>
@@ -122,12 +102,4 @@
 
 </form>
 
-<footer>
-	<p>
-
-		Copyright &copy; 2013 natsuyuu
-	</p>
-</footer>
 {% endblock %}
-</body>
-</html>
