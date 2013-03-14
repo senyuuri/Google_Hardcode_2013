@@ -4,23 +4,26 @@
 {% block content %}
 
 
-<div class='well'>
+<div class='well' style="float:left;">
 
-<div style='width:100px;height:100px;'>
+<div style='width: 100px; height: 100px; float:inherit;'>
 {{img|safe}}
+
 {% if not img %}
 <img src='/static/img/avatar.png'></img>
-{% endif %}  
+{% endif %} 
+
 </div>  
 
-
+<div style="width: 60%; float: inherit; margin-left: 10%;">
 <h3>Welcome, {{user.nickname}}</h3>
 <p>{{group}}</p>
 <p>Last Login:{{user.last_login.strftime('%y-%m-%d %H:%M:%S')}}</p>
-
+</div>
 </div>
 
-<div class="span7">
+<div class="span7" style="float:left;">
+
       {% if not temp_html %}
       <div class="alert alert-success">
         Welcome to DHSlecture! We notice that you have not indicated your subject combination yet. <a href='/main/subchoose'>&gt;&gt; Click here &lt;&lt; </a>to go to the setting page.

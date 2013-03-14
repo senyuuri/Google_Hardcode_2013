@@ -4,14 +4,18 @@
 {% block content %}
 
 
-<div class='well'>
+<div class='well' style="float:left;">
 
-<div style='width:100px;height:100px;'>
+<div style='width: 100px; height: 100px; float:inherit;'>
 {{img|safe}}
 {% if not img %}
+
 <img src='/static/img/avatar.png'></img>
+
 {% endif %}
-</div>   
+</div>
+
+<div style="width: 60%; float: inherit; margin-left: 10%;">
 <h3>{{user.nickname}}</h3>
 <p>Authentication:{{group}}</p>
 <p>Registration:{{user.reg_time.strftime('%y-%m-%d %H:%M:%S')}}</p>
@@ -22,11 +26,11 @@
 {% for s in subject %}
 <span class='btn'>{{s}}</span>
 {% endfor %}
-
+</div>
 
 </div>
 
-<div>
+<div style="margin-left: 3%;float:left;width:550px">
       <h4>Recent activities</h4>
       <div class="tabbable" style="margin-bottom: 18px;">
         <ul class="nav nav-tabs">

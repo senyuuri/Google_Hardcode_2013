@@ -382,7 +382,8 @@ class SubChoose(BaseHandler):
     def get(self):
       user = users.get_current_user()
       u=db.GqlQuery('SELECT * FROM User WHERE user = :1', user).get()
-      self.render('choose.html',temp_html=rnsublist(u))
+
+      self.render('choose.html',temp_html=rnsublist(u),logout=users.create_logout_url("/"),nickname=u.nickname)
 
     def post(self):
       subject = self.request.get_all('subject')

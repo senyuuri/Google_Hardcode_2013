@@ -2,7 +2,9 @@
 
 <html lang="en">
 
-<head>
+<head><!--
+<link rel="stylesheet" href="metro-bootstrap.css" type="text/css" media="screen" />-->
+
 <link rel="stylesheet" href="/static/css/metro-bootstrap.css" type="text/css" media="screen" />
 
 <script type="text/javascript" src="/static/js/jquery-1.8.0.js"></script>
@@ -23,10 +25,26 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
+function set(){
+if(document.body.scrollWidth<965){
+document.getElementById("test").style.display="none"}
+else{
+	document.getElementById("test").style.display=""
+	}}
+
+window.onload=set;
 </script>
+
+
+
+
+
+
+
+
 </head>
 
-<body>
+<body onResize="set()">
 
 <!--Navibar-->
     <div class="navbar navbar-fixed-top">
@@ -53,8 +71,10 @@
             </div>
         </div>
     </div>
- 
-  <div class="subnav">
+<div class='well' id="test" style="height:10px;" >
+</div>
+
+  <div class="subnav" style='z-index:0;'>
     <ul class="nav nav-pills">
         <li><a href="#">QuickNavi:)</a></li>
         <li><a href="/main">Mainpage</a></li>
@@ -70,18 +90,21 @@
     </ul>
   </div>
 
-     
 
 
-
+<div style="padding-bottom: 100px;">
 {% block content %}
  {% endblock %}
-
-<footer>
+</div>
+<!--
+<div style="height: 100px;
+　position: relative;
+　margin-top: -100px;">
 	<p>
 		Copyright &copy; 2013 natsuyuu
 	</p>
-</footer>
 
+</div>
+-->
 </body>
 </html>

@@ -5,12 +5,6 @@
 
 
 <div class='well'>
-<div style='width:100px;height:100px;'>
-{% if not img %}
-<img src='/static/img/avatar.png'></img>
-{% endif %}
-{{img|safe}}
-</div> 
 
 
 <h3>My account status</h3>
@@ -55,8 +49,15 @@
 </div>
 
 <div class='well'>
-<h4>Avatar Upload *Alpha test</h4>
 
+
+<h4>Avatar Upload *Alpha test</h4>
+<div style='width:100px;height:100px;'>
+{% if not img %}
+<img src='/static/img/avatar.png'></img>
+{% endif %}
+{{img|safe}}
+</div> 
 <form method='post' action='/main/upload' enctype="multipart/form-data">
 <div class="control-group">
             
