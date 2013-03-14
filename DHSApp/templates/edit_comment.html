@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<form class="well" method="post">
+  <h3>Edit</h3>
+  
+
+  <label class="control-label" for="textarea">Your Comment:</label>
+            <div class="controls">
+              <textarea class="input-xlarge" id="textarea" rows="3" name="content"  required >{{content}}</textarea>
+            </div>
+  <button type="submit" class="btn">Submit</button>
+</form>
+</div>
+{% endblock %}

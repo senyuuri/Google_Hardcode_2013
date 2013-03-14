@@ -32,6 +32,7 @@ class User(db.Model):
 	post_num = db.IntegerProperty()
 	comment_num = db.IntegerProperty()
 	subcombi = db.ListProperty(str)
+	avatar = db.BlobProperty()
 	#relevant_post = db.ReferenceProperty(Post,collection_name='postuser')
 
 

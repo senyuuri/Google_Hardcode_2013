@@ -3,6 +3,23 @@
 
 {% block content %}
 
+
+<div class='well'>
+
+<div style='width:100px;height:100px;'>
+{{img|safe}}
+{% if not img %}
+<img src='/static/img/avatar.png'></img>
+{% endif %}  
+</div>  
+
+
+<h3>Welcome, {{user.nickname}}</h3>
+<p>{{group}}</p>
+<p>Last Login:{{user.last_login.strftime('%y-%m-%d %H:%M:%S')}}</p>
+
+</div>
+
 <div class="span7">
       {% if not temp_html %}
       <div class="alert alert-success">

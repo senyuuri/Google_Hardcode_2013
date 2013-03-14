@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<form class="well" method="post">
+  <h3>Edit</h3>
+  <label>Title</label>
+  <input type="text" class="span3" placeholder="" name="title" value="{{title}}" required>
+  
+ 
+  <div class="control-group">
+    <label>Subject</label>
+         <div class="controls">
+              <input class="input-xlarge disabled" id="disabledInput" type="text" placeholder="{{subject}}" disabled>
+            </div>
+
+  <label class="control-label" for="textarea">Textarea</label>
+            <div class="controls">
+              <textarea class="input-xlarge" id="textarea" rows="3" name="content"  required>{{content}}</textarea>
+            </div>
+  <button type="submit" class="btn">Submit</button>
+</form>
+</div>
+{% endblock %}

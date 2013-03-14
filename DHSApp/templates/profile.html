@@ -5,6 +5,13 @@
 
 
 <div class='well'>
+
+<div style='width:100px;height:100px;'>
+{{img|safe}}
+{% if not img %}
+<img src='/static/img/avatar.png'></img>
+{% endif %}
+</div>   
 <h3>{{user.nickname}}</h3>
 <p>Authentication:{{group}}</p>
 <p>Registration:{{user.reg_time.strftime('%y-%m-%d %H:%M:%S')}}</p>
