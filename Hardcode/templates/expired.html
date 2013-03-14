@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+	<h2>{{USER.name}}</h2>
+</div>
+<div>
+	{% for post in posts %}
+	<h1><a href='/view/{{post.pid}}'>{{post.title}}</a></h1>
+	<form method='post'>
+	<input type='hidden' name='pid' value='{{post.pid}}'>
+	<input type='submit' name='button' value='Delete'>
+	</form>
+	{% endfor %}
+</div>
+
+<div>
+	<form method='get' action='delete'>
+		<input type = 'submit' name='option' value='Delete Your Account'>
+		<input type = 'submit' name='option' value='Delete All Your User Data'>
+	</form>
+</div>
+{% endblock %}

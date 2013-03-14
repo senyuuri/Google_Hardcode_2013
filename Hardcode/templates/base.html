@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/main.css" />
+
+  <title>{{PageTitle}}</title>
+</head>
+
+<body>
+  <a href="/blog" class="main-title">
+  </a>
+  <div>
+
+  </div>
+  <div class="login-area">
+    {% if user %}
+      {{user}} <a class="login-link" href="/logout">Log Out</a>
+	  |
+      <a class="login-link" href="/account">Account</a>
+    {% else %}
+      <a class="login-link" href="/login">log In</a>
+      |
+      <a class="login-link" href="/signup">Sign Up</a>
+    {% endif %}
+  </div>
+
+  <div id="content">
+  {% block content %}
+	
+  {% endblock %}
+  </div>
+</body>
+
+</html>
+

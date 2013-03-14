@@ -1,0 +1,4 @@
+cron:
+- description: daily expiration check
+  url: /admin/expire
+  schedule: every 24 hours
